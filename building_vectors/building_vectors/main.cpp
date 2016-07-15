@@ -59,7 +59,7 @@ int main(int argc, const char * argv[])
     cerr << "creat samples" << endl;
     
     //&all.delete; I need to delete it
-   delete &all;
+   //delete &all;
  //   all = NULL;
     //read all the uids
     
