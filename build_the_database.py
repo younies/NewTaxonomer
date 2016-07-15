@@ -94,7 +94,7 @@ def osRunForName(name):
 	command_yjrList.append(uid)
 	command_yjrList.append(str(getTheSizeOfFile(path_to_the_database + uid + '.fa')))
 	command_yjrList.append(str(kmer))
-	osRunningCommand(command_yjrList , "building the yrj for the " + name)
+	subProRunning(command_yjrList , "building the yrj for the " + name)
 
 	##remove the fasta file
 	commandRemoceFasta = "rm " + path_to_the_database + uid + '.fa'
