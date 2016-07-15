@@ -41,7 +41,7 @@ int main(int argc, const char * argv[])
     string path_to_all = "/export/project/hondius/newProject/kmerDatabase31/all.yrj";
     
     //for reading all the names
-    LONG numOfUID = 100;//8065;
+    LONG numOfUID = 8065;
     string path_to_names = "/export/project/hondius/newProject/namesOfFiles.txt";
     vector<string> namesOfFiles;
     ifstream namesStream(path_to_names);
@@ -54,7 +54,7 @@ int main(int argc, const char * argv[])
     //end reading all the names
 
     YRJ all = *new YRJ(path_to_all);
-    vector<LONG> samples = all.getRandomSamples(path_to_ten_unique_rand, 1000);
+    vector<LONG> samples = all.getRandomSamples(path_to_ten_unique_rand, 10000000);
 
     cerr << "creat samples" << endl;
     
@@ -80,7 +80,7 @@ int main(int argc, const char * argv[])
     if(os.is_open())
         cerr << "file_open" << endl;
     char  c;
-    for (LONGS i = 0 , n = 1000; i < n ; ++i)
+    for (LONGS i = 0 , n = samples.size(); i < n ; ++i)
     {
         
         LONGS count1 = 0 , count0 = 0;
