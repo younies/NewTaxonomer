@@ -94,3 +94,9 @@ else:
 	print "failed to build the all kmers fasta file"
 
 
+
+
+
+
+
+
