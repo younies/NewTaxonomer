@@ -32,7 +32,8 @@ YRJ::YRJ(string path_to_file)
 
 bool YRJ::isKmerExist(LONG kmer)
 {
-    LONG start = 0 , end = this->numOfKmers - 1 , mid;
+    LONGS start = 0  , mid;
+    LONGS end = this->numOfKmers - 1;
     
     while (end >= start)
     {

@@ -53,5 +53,6 @@
 
 using namespace std;
 typedef unsigned long LONG;
+typedef long LONGS;
 
 #endif /* headers_h */

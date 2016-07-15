@@ -64,7 +64,7 @@ int main(int argc, const char * argv[])
     //read all the uids
     
     vector<YRJ*> all_UIDs(numOfUID);
-    for (int i = 0 ; i < numOfUID; ++i)
+    for (LONGS i = 0 ; i < numOfUID; ++i)
     {
         cerr << "read an UID \n";
         all_UIDs[i] = new YRJ(namesOfFiles[i]);
@@ -79,7 +79,7 @@ int main(int argc, const char * argv[])
     
     if(os.is_open())
         cerr << "file_open" << endl;
-    for (int i = 0 , n = (int)samples.size(); i < n ; ++i)
+    for (LONGS i = 0 , n = (LONGS)samples.size(); i < n ; ++i)
     {
         char * c;
         int count1 = 0 , count0 = 0;
