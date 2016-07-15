@@ -54,11 +54,11 @@ int main(int argc, const char * argv[])
     //end reading all the names
 
     YRJ all = *new YRJ(path_to_all);
-    vector<LONG> samples = all.getRandomSamples(path_to_ten_unique_rand, 1000000);
+    vector<LONG> samples = all.getRandomSamples(path_to_ten_unique_rand, 10000000);
 
     
     //&all.delete; I need to delete it
-   delete &all;
+   //delete &all;
  //   all = NULL;
     //read all the uids
     vector<YRJ*> all_UIDs(numOfUID);
