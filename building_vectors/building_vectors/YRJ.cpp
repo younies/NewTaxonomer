@@ -53,12 +53,12 @@ bool YRJ::isKmerExist(LONG kmer)
 
 
 
-vector<LONG> YRJ::getRandomSamples(string file_path , LONG numOfSamples)
+vector<LONG> YRJ::getRandomSamples(string file_path , LONGS numOfSamples)
 {
     
     vector<LONG> samples(numOfSamples);
     
-    for (int i = 0 ; i <  numOfSamples; ++i)
+    for (LONGS i = 0 ; i <  numOfSamples; ++i)
     {
         samples[i] = this->kmersVector[i];
     }
