@@ -54,23 +54,28 @@ int main(int argc, const char * argv[])
     //end reading all the names
 
     YRJ all = *new YRJ(path_to_all);
-    vector<LONG> samples = all.getRandomSamples(path_to_ten_unique_rand, 10000000);
+    vector<LONG> samples = all.getRandomSamples(path_to_ten_unique_rand, 1000000);
 
+    cerr << "creat samples" << endl;
     
     //&all.delete; I need to delete it
-   //delete &all;
+   delete &all;
  //   all = NULL;
     //read all the uids
+    
     vector<YRJ*> all_UIDs(numOfUID);
     for (int i = 0 ; i < numOfUID; ++i)
     {
+        cerr << "read an UID \n";
         all_UIDs[i] = new YRJ(namesOfFiles[i]);
     }
     
+    
+    cerr << "finish UIDs" << endl;
     string path_to_result = "/export/project/hondius/newProject/result_ten_million.txt";
+    
+    
     ofstream os(path_to_result);
-    
-    
     
     for (int i = 0 , n = (int)samples.size(); i < n ; ++i)
     {
@@ -78,6 +83,7 @@ int main(int argc, const char * argv[])
         int count1 = 0 , count0 = 0;
         for (int j = 0  ; j < numOfUID; ++j)
         {
+            cerr << j << "   j   i  " << i << endl;
             
             if(all_UIDs[j]->isKmerExist(samples[i]))
             {
