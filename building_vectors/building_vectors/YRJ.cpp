@@ -56,7 +56,14 @@ vector<LONG> YRJ::getRandomSamples(string file_path , LONG numOfSamples)
 {
     
     vector<LONG> samples(numOfSamples);
-    ifstream fileStream(file_path);
+    
+    for (int i = 0 ; i <  numOfSamples; ++i)
+    {
+        samples[i] = this->kmersVector[i];
+    }
+    
+    
+    /*ifstream fileStream(file_path);
     string line;
     LONG indx;
     LONG pointer = 0;
@@ -69,7 +76,7 @@ vector<LONG> YRJ::getRandomSamples(string file_path , LONG numOfSamples)
         ++pointer;
     }
     fileStream.close();
-    
+    */
     return samples;
 }
 
