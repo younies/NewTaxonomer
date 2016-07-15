@@ -16,7 +16,7 @@ class YRJ {
     LONG kmerLength;
     LONG numOfKmers;
     string path_to_file;
-    vector<LONG> kmersVector;
+    LONG * kmersVector;
     
 public:
     YRJ(string path_to_file);

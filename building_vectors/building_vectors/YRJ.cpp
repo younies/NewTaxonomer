@@ -15,12 +15,9 @@ YRJ::YRJ(string path_to_file)
     ifstream fileStream(path_to_file);
     fileStream.read( (char *)&this->kmerLength  , sizeof(LONG));
     fileStream.read( (char *) &this->numOfKmers , sizeof(LONG));
-    this->kmersVector = *new vector<LONG>(this->numOfKmers , 0);
+    this->kmersVector = new LONG [this->numOfKmers];
     
-    for (int i = 0 ; i < numOfKmers; ++i)
-    {
-        fileStream.read( (char *) &kmersVector[i], sizeof(LONG));
-    }
+    fileStream.read(kmersVector, this->numOfKmers * sizeof(LONG));
     
     fileStream.close();
 }
