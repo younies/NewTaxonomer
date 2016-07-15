@@ -41,7 +41,7 @@ int main(int argc, const char * argv[])
     string path_to_all = "/export/project/hondius/newProject/kmerDatabase31/all.yrj";
     
     //for reading all the names
-    LONG numOfUID = 6000//8065;
+    LONG numOfUID = 6000;//8065;
     string path_to_names = "/export/project/hondius/newProject/namesOfFiles.txt";
     vector<string> namesOfFiles;
     ifstream namesStream(path_to_names);
