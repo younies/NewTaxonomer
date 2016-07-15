@@ -79,12 +79,12 @@ int main(int argc, const char * argv[])
     
     if(os.is_open())
         cerr << "file_open" << endl;
-    for (LONGS i = 0 , n = (LONGS)samples.size(); i < n ; ++i)
+    for (LONGS i = 0 , n = samples.size(); i < n ; ++i)
     {
         char * c;
         int count1 = 0 , count0 = 0;
         cerr << "uid num " << all_UIDs.size() << endl;
-        for (int j = 0 , m = all_UIDs.size() ; j < m; ++j)
+        for (LONGS j = 0 , m = all_UIDs.size() ; j < m; ++j)
         {
             cerr << j << "   j   i  " << i << endl;
             
