@@ -54,7 +54,7 @@ int main(int argc, const char * argv[])
     //end reading all the names
 
     YRJ all = *new YRJ(path_to_all);
-    vector<LONG> samples = all.getRandomSamples(path_to_ten_unique_rand, 1000000);
+    vector<LONG> samples = all.getRandomSamples(path_to_ten_unique_rand, 1000);
 
     cerr << "creat samples" << endl;
     
