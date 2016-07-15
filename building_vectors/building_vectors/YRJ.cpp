@@ -62,6 +62,7 @@ vector<LONG> YRJ::getRandomSamples(string file_path , LONG numOfSamples)
         samples[i] = this->kmersVector[i];
     }
     
+    cerr << "finish samples\n" ;
     
     /*ifstream fileStream(file_path);
     string line;
@@ -71,7 +72,7 @@ vector<LONG> YRJ::getRandomSamples(string file_path , LONG numOfSamples)
     {
         stringstream ss(line);
         ss >> indx;
-        cerr << kmerLength << "   " << numOfKmers << "  " << indx << endl;
+        //cerr << kmerLength << "   " << numOfKmers << "  " << indx << endl;
         samples[pointer] = this->kmersVector[indx];
         ++pointer;
     }
