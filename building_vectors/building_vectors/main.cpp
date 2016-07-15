@@ -104,6 +104,7 @@ int main(int argc, const char * argv[])
         os.write(c, sizeof(char));
         
         cerr << "cout0 : " << count0 << "   count1:  " << count1 << endl;
+        cerr << "NNNN " << n << endl;
     }
     
     
