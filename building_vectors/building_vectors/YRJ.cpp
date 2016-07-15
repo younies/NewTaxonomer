@@ -17,7 +17,7 @@ YRJ::YRJ(string path_to_file)
     fileStream.read( (char *) &this->numOfKmers , sizeof(LONG));
     this->kmersVector = new LONG [this->numOfKmers];
     
-    fileStream.read(kmersVector, this->numOfKmers * sizeof(LONG));
+    fileStream.read((char *)kmersVector, this->numOfKmers * sizeof(LONG));
     
     fileStream.close();
 }
@@ -27,7 +27,20 @@ YRJ::YRJ(string path_to_file)
 
 bool YRJ::isKmerExist(LONG kmer)
 {
-    return binary_search(kmersVector.begin(), kmersVector.end(), kmer);
+    LONG start = 0 , end = this->numOfKmers - 1 , mid;
+    
+    while (end >= start)
+    {
+        mid = (start + end)/2;
+        if(this->kmersVector[mid] == kmer)
+            return true;
+        else if (this->kmersVector[mid] > kmer)
+            end = mid - 1;
+        else
+            start = mid + 1;
+    }
+    
+    return false;
 }
 
 
@@ -55,25 +68,6 @@ vector<LONG> YRJ::getRandomSamples(string file_path , LONG numOfSamples)
 
 
 
-
-
-/*
-
-LONG YRJ::getRandomSamples(vector<LONG> &samples , LONG numOfSamples)
-{
-    if (numOfSamples > this->numOfKmers)
-    {
-        numOfSamples = this->numOfKmers;
-        samples = this->kmersVector;
-        return numOfSamples;
-    }
-    
-    
-    
-    
-    
-}
-*/
 
 
 

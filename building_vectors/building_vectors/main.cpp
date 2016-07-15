@@ -95,10 +95,4 @@ int main(int argc, const char * argv[])
         cerr << "cout0 : " << count0 << "   count1:  " << count1 << endl;
     }
     
-    
-    
-    
-    
-    
-    
 }
