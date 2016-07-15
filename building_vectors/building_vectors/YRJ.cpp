@@ -9,6 +9,11 @@
 #include "YRJ.hpp"
 
 
+YRJ::~YRJ()
+{
+    free(this->kmersVector);
+}
+
 YRJ::YRJ(string path_to_file)
 {
     this->path_to_file = path_to_file;

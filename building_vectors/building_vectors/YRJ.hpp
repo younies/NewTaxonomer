@@ -20,7 +20,7 @@ class YRJ {
     
 public:
     YRJ(string path_to_file);
-    ~YRJ() {std::cout <<"YRJ destroyed\n";}
+    ~YRJ() ;
     bool isKmerExist(LONG kmer);
     //LONG getRandomSamples(vector<LONG> &samples , LONG numOfSamples);
     vector<LONG> getRandomSamples(string file_path, LONG numOfSamples);
