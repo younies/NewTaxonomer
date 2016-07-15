@@ -66,7 +66,7 @@ int main(int argc, const char * argv[])
     vector<YRJ*> all_UIDs(numOfUID);
     for (LONGS i = 0 ; i < numOfUID; ++i)
     {
-        cerr << "read an UID \n";
+        cerr << "read UID  " << i << "\n" ;
         all_UIDs[i] = new YRJ(namesOfFiles[i]);
     }
     
