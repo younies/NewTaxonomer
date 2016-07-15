@@ -77,6 +77,8 @@ int main(int argc, const char * argv[])
     
     ofstream os(path_to_result);
     
+    if(os.is_open())
+    cerr << "file_open" << endl;
     for (int i = 0 , n = (int)samples.size(); i < n ; ++i)
     {
         char * c;
