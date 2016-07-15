@@ -78,12 +78,13 @@ int main(int argc, const char * argv[])
     ofstream os(path_to_result);
     
     if(os.is_open())
-    cerr << "file_open" << endl;
+        cerr << "file_open" << endl;
     for (int i = 0 , n = (int)samples.size(); i < n ; ++i)
     {
         char * c;
         int count1 = 0 , count0 = 0;
-        for (int j = 0  ; j < numOfUID; ++j)
+        cerr << "uid num " << all_UIDs.size() << endl;
+        for (int j = 0 , m = all_UIDs.size() ; j < m; ++j)
         {
             cerr << j << "   j   i  " << i << endl;
             
