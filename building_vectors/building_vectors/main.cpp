@@ -79,7 +79,7 @@ int main(int argc, const char * argv[])
     
     if(os.is_open())
         cerr << "file_open" << endl;
-    char * c;
+    char  c;
     for (LONGS i = 0 , n = 1000; i < n ; ++i)
     {
         
@@ -92,17 +92,17 @@ int main(int argc, const char * argv[])
             if(all_UIDs[j]->isKmerExist(samples[i]))
             {
                 ++count1;
-                *c = '1';
+                c = '1';
             }
             else
             {
                 ++count0;
-                *c = '0';
+                c = '0';
             }
-            os.write(c, sizeof(char));
+            os.write(&c, sizeof(char));
         }
-        *c = '\n';
-        os.write(c, sizeof(char));
+        c = '\n';
+        os.write(&c, sizeof(char));
         
         cerr << "cout0 : " << count0 << "   count1:  " << count1 << endl;
         cerr << "NNNN " << n << endl;
