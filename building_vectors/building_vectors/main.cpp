@@ -74,7 +74,7 @@ int main(int argc, const char * argv[])
     cerr << "finish UIDs" << endl;
     string path_to_result = "/export/project/hondius/newProject/result_ten_million.txt";
     
-    
+    LONGS count1Global = 0 , count0Global = 0, countMoreOne = 0;
     ofstream os(path_to_result);
     
     if(os.is_open())
@@ -84,7 +84,7 @@ int main(int argc, const char * argv[])
     {
         
         LONGS count1 = 0 , count0 = 0;
-        cerr << "uid num " << all_UIDs.size() << endl;
+        //cerr << "uid num " << all_UIDs.size() << endl;
         for (LONGS j = 0 , m = all_UIDs.size() ; j < m; ++j)
         {
           //  cerr << j << "   j   i  " << i << endl;
@@ -104,10 +104,21 @@ int main(int argc, const char * argv[])
         c = '\n';
         os.write(&c, sizeof(char));
         
-        cerr << "cout0 : " << count0 << "   count1:  " << count1 << endl;
-        cerr << "NNNN " << n << endl;
+        cout << "cout0 : " << count0 << "   count1:  " << count1 << endl;
+        
+        if(count1 == 0)
+        count0Global++;
+        else if (count1 == 1)
+        count1Global ++;
+        else
+        countMoreOne++;
+        cout << "line " << i << "  count 0 global " << count0Global ;
+        cout << " count 1 global " << count1Global ;
+        cout << "  count more global " << countMoreOne << endl;
+        
+        //cerr << "NNNN " << n << endl;
     }
     
     
-    cerr << (LONGS)samples.size() << endl;
+    //cout << (LONGS)samples.size() << endl;
 }
