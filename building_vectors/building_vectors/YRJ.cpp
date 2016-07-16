@@ -80,6 +80,8 @@ vector<LONG> YRJ::getRandomSamples(string file_path , LONGS numOfSamples)
     }
     fileStream.close();
     
+    free(this->kmersVector);
+    
     return samples;
 }
 

@@ -41,7 +41,7 @@ int main(int argc, const char * argv[])
     string path_to_all = "/export/project/hondius/newProject/kmerDatabase31/all.yrj";
     
     //for reading all the names
-    LONG numOfUID = 6000;//8065;
+    LONG numOfUID = 8065;
     string path_to_names = "/export/project/hondius/newProject/namesOfFiles.txt";
     vector<string> namesOfFiles;
     ifstream namesStream(path_to_names);
@@ -66,7 +66,7 @@ int main(int argc, const char * argv[])
     vector<YRJ*> all_UIDs(numOfUID);
     for (LONGS i = 0 ; i < numOfUID; ++i)
     {
-        cerr << "read UID  " << i << "\n" ;
+     //   cerr << "read UID  " << i << "\n" ;
         all_UIDs[i] = new YRJ(namesOfFiles[i]);
     }
     
@@ -87,7 +87,7 @@ int main(int argc, const char * argv[])
         cerr << "uid num " << all_UIDs.size() << endl;
         for (LONGS j = 0 , m = all_UIDs.size() ; j < m; ++j)
         {
-            cerr << j << "   j   i  " << i << endl;
+          //  cerr << j << "   j   i  " << i << endl;
             
             if(all_UIDs[j]->isKmerExist(samples[i]))
             {
