@@ -124,7 +124,7 @@ else:
 
 ##make the kmer database directory
 
-make_directory = subprocess.Popen(['mkdir', path_to_the_program + kmer_databaseName], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+make_directory = subprocess.Popen(['mkdir', path_to_the_place_of_the_database + kmer_databaseName], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 out , err = make_directory.communicate()
 
