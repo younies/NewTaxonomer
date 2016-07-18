@@ -11,6 +11,7 @@ import re
 ##some configuration variables:
 
 path_to_the_program = "/export/project/hondius/newProject/"
+path_to_the_place_of_the_database = "/export1/project/hondius/newKrakenResearch/databases"
 name_of_genomes_database = "genomesDatabase"
 path_for_converting_yjr = "/export/project/hondius/newProject/NewTaxonomer/convert_kmerFasta_to_yrj.out"
 kmer_databaseName = "" #setted in the program
@@ -65,14 +66,15 @@ def osRunForName(name):
 	"""
 	taking a name like 1094.fa and produce the 1098.jf file and then .yjr file
 	"""
+	global path_to_the_place_of_the_database
 	global path_to_the_program , name_of_genomes_database, path_for_converting_yjr, kmer_databaseName
 	global kmer
 
 	uid = name[:-3]
-	path_to_the_database = path_to_the_program + '/' + kmer_databaseName + '/'
+	path_to_the_database = path_to_the_place_of_the_database + '/' + kmer_databaseName + '/'
 
 	name_in_genomesDB = path_to_the_program + name_of_genomes_database + "/" + name
-	name_in_kmerDB = path_to_the_program + kmer_databaseName + "/" + name[:-3] + '.jf'
+	name_in_kmerDB = path_to_the_place_of_the_database + kmer_databaseName + "/" + name[:-3] + '.jf'
 
 	commadList = ["jellyfish" , "count", '-m' , str(kmer) , '-s' , '100M' , '-C' , '-o']
 	commadList.append(name_in_kmerDB)
@@ -157,8 +159,8 @@ for name in names:
 print full_names[0]
 ##for building all the data base
 
-all_database_name = path_to_the_program + kmer_databaseName + '/all.jf'
-"""
+all_database_name = path_to_the_place_of_the_database + kmer_databaseName + '/all.jf'
+
 building_all = subprocess.Popen(['jellyfish', 'count' , '-m' , str(kmer) , '-s' , '10000M' , '-C' , '-o' , all_database_name ] + full_names, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 out , err = building_all.communicate()
@@ -169,18 +171,18 @@ else:
 	print "failed to build all the database"
 	exit()
 
-"""
+
 
 
 ## building the kmers for the database
 
-name_of_fasta_all = path_to_the_program + kmer_databaseName + '/all.fa'
+name_of_fasta_all = path_to_the_place_of_the_database + kmer_databaseName + '/all.fa'
 
 print all_database_name
 print name_of_fasta_all
 
 #building_all_fasta = subprocess.Popen(['jellyfish', 'dump' , all_database_name , '>' , name_of_fasta_all], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-"""
+
 err = os.system( "jellyfish dump " + all_database_name + " > " + name_of_fasta_all)
 #out , err = building_all_fasta.communicate()
 if not err:
@@ -195,7 +197,7 @@ osRunningCommand(removeAllCommand , "removing all jf from the disk")
 
 
 ### build the yrj for the database
-commandYJR_for_all = [path_for_converting_yjr ,path_to_the_program + kmer_databaseName +'/', 'all'  ]
+commandYJR_for_all = [path_for_converting_yjr ,path_to_the_place_of_the_database + kmer_databaseName +'/', 'all'  ]
 commandYJR_for_all.append(str(getTheSizeOfFile(name_of_fasta_all) ))
 commandYJR_for_all.append(str(kmer))
 subProRunning( commandYJR_for_all , "building yjr for all")
@@ -205,7 +207,7 @@ subProRunning( commandYJR_for_all , "building yjr for all")
 commandRemoveFastaAll = "rm " + name_of_fasta_all
 osRunningCommand(commandRemoveFastaAll , "removing the fasta all")
 
-"""
+
 ##for building all the uids
 
 for name in names:

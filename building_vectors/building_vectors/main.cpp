@@ -107,16 +107,14 @@ int main(int argc, const char * argv[])
         cout << "cout0 : " << count0 << "   count1:  " << count1 << endl;
         
         if(count1 == 0)
-        count0Global++;
+            count0Global++;
         else if (count1 == 1)
-        count1Global ++;
+            count1Global ++;
         else
-        countMoreOne++;
+            countMoreOne++;
         cout << "line " << i << "  count 0 global " << count0Global ;
         cout << " count 1 global " << count1Global ;
         cout << "  count more global " << countMoreOne << endl;
-        
-        //cerr << "NNNN " << n << endl;
     }
     
     
